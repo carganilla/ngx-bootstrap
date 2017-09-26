@@ -13,6 +13,7 @@ import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
+import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/toArray';
 import { TypeaheadMatch } from './typeahead-match.class';
 import { ComponentLoader, ComponentLoaderFactory } from '../component-loader';
@@ -259,7 +260,7 @@ export class TypeaheadDirective implements OnInit, OnDestroy {
   protected asyncActions(): void {
     this._subscriptions.push(this.keyUpEventEmitter
       .debounceTime(this.typeaheadWaitMs)
-      .mergeMap(() => this.typeahead)
+      .switchMap(() => this.typeahead)
       .subscribe(
         (matches: any[]) => {
           this.finalizeAsyncCall(matches);

@@ -1,5 +1,5 @@
 {
-  "name": "ngx-bootstrap",
+  "name": "@cheyenne/ngx-bootstrap",
   "peerDependencies": {
     "@angular/common": "*",
     "@angular/compiler": "*",
